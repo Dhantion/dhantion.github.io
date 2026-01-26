@@ -172,6 +172,9 @@ export default function PassengerPage() {
                         <h2>{CONTENT.passenger_home.driver_accepted}</h2>
                         <p>{CONTENT.passenger_home.driver_on_way}</p>
                         <p style={{ fontSize: '0.9rem', color: '#aaa', marginTop: '0.5rem' }}>{CONTENT.passenger_home.rate_driver} {ride.driverName}</p>
+                        <div style={{ display: 'flex', gap: '1rem', marginTop: '1rem' }}>
+                            <button onClick={confirmPickupByPassenger} style={btnStyle}>Start Ride (I'm in) 🚕</button>
+                        </div>
                         <button onClick={() => cancelRide()} style={secondaryButtonStyle}>{CONTENT.passenger_home.cancel_request}</button>
                     </div>
                 )}

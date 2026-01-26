@@ -80,7 +80,7 @@ export default function DriverPage() {
                             🚖 {CONTENT.driver_home.passenger_label} <span style={{ color: '#4facfe' }}>{ride.passengerName || 'Unknown'}</span>
                         </p>
                         <p>{CONTENT.driver_home.go_to_pickup} {ride.pickup}</p>
-                        <button onClick={startRide} style={buttonStyle}>{CONTENT.driver_home.start_trip_button}</button>
+                        <p style={{ marginTop: '1rem', color: '#ffd700', fontWeight: 'bold' }}>Waiting for passenger to start the trip... ⏳</p>
                     </div>
                 )}
 
