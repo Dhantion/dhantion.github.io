@@ -111,6 +111,34 @@ export default function DriverPage() {
                                 ...(getPos(ride.destination) ? [{ position: getPos(ride.destination)!, popup: 'Goal', isSelected: true }] : [])
                             ]}
                         />
+                        {ride.pickup && ride.destination && LOCATIONS[ride.pickup] && LOCATIONS[ride.destination] && (
+                            <button
+                                onClick={() => {
+                                    const start = LOCATIONS[ride.pickup];
+                                    const end = LOCATIONS[ride.destination];
+                                    if (start && end) {
+                                        window.open(`https://www.google.com/maps/dir/?api=1&origin=${start[0]},${start[1]}&destination=${end[0]},${end[1]}&travelmode=driving`, '_blank');
+                                    }
+                                }}
+                                style={{
+                                    width: '100%',
+                                    padding: '0.8rem',
+                                    marginTop: '0.5rem',
+                                    borderRadius: '8px',
+                                    border: '1px solid #ddd',
+                                    background: '#fff',
+                                    color: '#333',
+                                    fontWeight: 'bold',
+                                    cursor: 'pointer',
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    justifyContent: 'center',
+                                    gap: '0.5rem'
+                                }}
+                            >
+                                Open in Google Maps 🗺️
+                            </button>
+                        )}
                         <p style={{ marginTop: '1rem' }}>Destination: {ride.destination}</p>
                         <div style={{ display: 'flex', gap: '1rem', marginTop: '1rem' }}>
                             <button onClick={() => cancelRide(ride.id || '')} style={{ ...secondaryButtonStyle, background: 'red', borderColor: 'red', color: 'white' }}>Cancel Ride</button>

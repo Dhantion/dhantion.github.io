@@ -208,6 +208,37 @@ export default function PassengerPage() {
                                 ]}
                             />
                         </div>
+
+                        {ride.pickup && ride.destination && LOCATIONS[ride.pickup] && LOCATIONS[ride.destination] && (
+                            <button
+                                onClick={() => {
+                                    const start = LOCATIONS[ride.pickup];
+                                    const end = LOCATIONS[ride.destination];
+                                    if (start && end) {
+                                        window.open(`https://www.google.com/maps/dir/?api=1&origin=${start[0]},${start[1]}&destination=${end[0]},${end[1]}&travelmode=driving`, '_blank');
+                                    }
+                                }}
+                                style={{
+                                    width: '100%',
+                                    padding: '0.8rem',
+                                    marginTop: '0.5rem',
+                                    marginBottom: '1rem',
+                                    borderRadius: '8px',
+                                    border: '1px solid #ddd',
+                                    background: '#fff',
+                                    color: '#333',
+                                    fontWeight: 'bold',
+                                    cursor: 'pointer',
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    justifyContent: 'center',
+                                    gap: '0.5rem'
+                                }}
+                            >
+                                Open in Google Maps 🗺️
+                            </button>
+                        )}
+
                         <p>{CONTENT.passenger_home.heading_to} {ride.destination}...</p>
                         <div style={{ display: 'flex', gap: '1rem', marginTop: '2rem' }}>
                             <button onClick={() => cancelRide()} style={{ ...secondaryButtonStyle, marginTop: '0', background: 'red', color: 'white' }}>Cancel Ride</button>
